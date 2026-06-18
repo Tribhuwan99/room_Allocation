@@ -4,10 +4,9 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const app = express();
 
-const PORT = process.env.PORT || 3001;
-const JWT_SECRET = process.env.JWT_SECRET || 'change-this-local-jwt-secret';
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+const JWT_SECRET = 'change-this-local-jwt-secret';
+const ADMIN_USERNAME = 'admin';
+const ADMIN_PASSWORD = 'admin123';
 
 app.use(express.json());
 app.use(cors());
@@ -119,6 +118,6 @@ app.get('/api/bulk', authenticateToken, async (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
+app.listen(3001, () => {
+  console.log('Server started');
 });
